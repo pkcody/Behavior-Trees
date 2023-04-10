@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
@@ -10,6 +11,11 @@ public class Player : MonoBehaviour
 
     bool testBehavior = false;
     Task currTask;
+
+    //For animation
+    public Animator animPlayer;
+    public Animator animDoor;
+
     private void Start()
     {
         testBehavior = false;
@@ -24,6 +30,11 @@ public class Player : MonoBehaviour
                 testBehavior = true;
                 currTask = StartTask();
                 currTask.run();
+
+                //animations
+                animPlayer.SetTrigger("GO");
+                animDoor.SetTrigger("GO");
+
             }
         }
 
